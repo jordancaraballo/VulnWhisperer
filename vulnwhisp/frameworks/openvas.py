@@ -24,7 +24,7 @@ class OpenVAS_API(object):
         self.logger = logging.getLogger('OpenVAS_API')
         if verbose:
             self.logger.setLevel(logging.DEBUG)
-        if username is None or password is None:
+        if username == None or password == None:
             raise Exception('ERROR: Missing username or password.')
 
         self.username = username
@@ -54,7 +54,7 @@ class OpenVAS_API(object):
 
     def login(self):
         resp = self.get_token()
-        if resp.status_code is 200:
+        if resp.status_code == 200:
             xml_response = BeautifulSoup(resp.content, 'lxml')
             self.token = xml_response.find(attrs={'id': 'gsa-token'}).text
 
@@ -64,9 +64,9 @@ class OpenVAS_API(object):
 
     def request(self, url, data=None, params=None, headers=None, cookies=None, method='POST', download=False,
                 json=False):
-        if headers is None:
+        if headers == None:
             headers = self.headers
-        if cookies is None:
+        if cookies == None:
             cookies = self.cookies
 
         timeout = 0

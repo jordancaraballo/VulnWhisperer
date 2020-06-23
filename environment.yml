@@ -1,0 +1,22 @@
+# Conda environment
+name: vulnwhisp37
+
+channels:
+  - conda-forge
+  - defaults
+  - anaconda
+
+dependencies:
+  - pip:
+    - pandas
+    - setuptools
+    - pytz
+    - Requests
+    - lxml
+    - future-fstrings
+    - bs4
+    - jira
+    - bottle
+    - coloredlogs
+    - qualysapi
+    - httpretty
