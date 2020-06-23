@@ -2,6 +2,9 @@
 
 from setuptools import setup, find_packages
 
+print (find_packages())
+
+
 setup(
     name='VulnWhisperer',
     version='1.8',

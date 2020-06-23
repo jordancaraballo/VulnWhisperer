@@ -2,7 +2,10 @@
 # -*- coding: utf-8 -*-
 __author__ = 'Austin Taylor'
 
-from base.config import vwConfig
+#from base.config import vwConfig
+# replaced for Python3
+import configparser
+
 from frameworks.nessus import NessusAPI
 from frameworks.qualys_web import qualysScanReport
 from frameworks.qualys_vuln import qualysVulnScan
@@ -49,7 +52,8 @@ class vulnWhispererBase(object):
         self.develop = develop
 
         if config is not None:
-            self.config = vwConfig(config_in=config)
+            #self.config = vwConfig(config_in=config)
+            self.config = (configparser.ConfigParser()).read(config)
             try:
                 self.enabled = self.config.get(self.CONFIG_SECTION, 'enabled')
             except:
